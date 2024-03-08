@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/fwd-normalize.css">
+</head>
+<body>
+    <header id="header">
+        <h1>Tic Tac Toe Game</h1>
+    </header>
+
+    <main id="main">
+        <div class="start-game" id="start-game">
+            <h2>Tic Tac Toe</h2>
+            <button class="btn-start">Start</button>
+        </div>
+
+        <div class="game-play" id="game-play">
+            <div class="game-board" id="game-board">
+                <div class="cell" data-cell-number="1"></div>
+                <div class="cell" data-cell-number="2"></div>
+                <div class="cell" data-cell-number="3"></div>
+                <div class="cell" data-cell-number="4"></div>
+                <div class="cell" data-cell-number="5"></div>
+                <div class="cell" data-cell-number="6"></div>
+                <div class="cell" data-cell-number="7"></div>
+                <div class="cell" data-cell-number="8"></div>
+                <div class="cell" data-cell-number="9"></div>
+            </div>
+    
+            <section>
+                <h2 class="game-status">Your turn!</h2>
+            </section>
+    
+            <div class="game-finish" id="game-finish">
+                <div class="game-end" id="game-end">
+                    <p class="winlose-msg">You won!</p>
+                </div>
+    
+                <button class="btn-restart">Play Again</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        ©ninaweng.com 2024
+    </footer>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
