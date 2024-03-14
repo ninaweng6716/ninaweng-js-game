@@ -28,7 +28,7 @@ let gameRun = false;
 function initGame() {
     startScreen.style.display = 'none';
     playScreen.style.display = 'block';
-    gameMode.style.display = 'none';
+    // gameMode.style.display = 'none';
 
     cells.forEach(cell =>
         cell.addEventListener('click', handleCellClick));
@@ -38,7 +38,7 @@ function initGame() {
 
     btnRestart.addEventListener('click', restartGame);
     btnBack.addEventListener('click', backStart);
-    btnBackMode.addEventListener('click', backMode);
+    // btnBackMode.addEventListener('click', backMode);
 }
 
 function handleCellClick() {
@@ -112,20 +112,14 @@ function backStart() {
     playScreen.style.display = 'none';
 }
 
-function backMode() {
-    gameRun = false;
+// function backMode() {
+//     gameRun = false;
 
-    playScreen.style.display = 'none';
-    gameMode.style.display = 'block';
-}
+//     playScreen.style.display = 'none';
+//     gameMode.style.display = 'block';
+// }
 
-btnStart.addEventListener('click', function() {
-    gameMode.style.display = 'block';
-    startScreen.style.display = 'none';
-
-    modeButtons.forEach(button =>
-         button.addEventListener('click', initGame));
-});
+btnStart.addEventListener('click', initGame);
 
 
 
