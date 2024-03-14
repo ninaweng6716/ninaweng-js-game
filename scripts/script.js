@@ -1,11 +1,15 @@
-// switch screen function. Parameter of gamescreen w/ switch break
-// game instruction
-// function for startgame, endgame, resetgame as well
-// for each loop for each of the 9 cells
-// winning condition 
+const startScreen = document.getElementById('start-game');
+const playScreen = document.getElementById('game-play');
 
-const playerX = 'x';
-const playerO = 'circle';
+const btnStart = document.getElementById('btn-start');
+const btnBack = document.getElementById('btn-back');
+const modeButtons = document.querySelectorAll('.btn-mode');
+const btnBackMode = document.getElementById('btn-back-mode');
+const gameMode = document.getElementById('game-mode');
+
+const cells = document.querySelectorAll('.cell');
+const statTxt = document.getElementById('game-status');
+const btnRestart = document.getElementById('btn-restart');
 const winningCombo = [
     [0, 1, 2],
     [3, 4, 5],
@@ -16,48 +20,114 @@ const winningCombo = [
     [0, 4, 8],
     [2, 4, 6]
 ];
-const cells = document.querySelectorAll('.cell');
-const gameBoard = document.getElementById('game-board');
-const winloseMsg = document.querySelector('.winlose-msg');
-const btnStart = document.querySelector('.btn-start')
-const btnRestart = document.querySelector('.btn-restart');
-let isPlayerOTurn = false;
 
-function startGame() {
-    isPlayerOTurn = false;
-    cells.forEach(cell => {
-        cell.classList.remove(playerXClass);
-        cell.classList.remove(playerOClass);
-        cell.removeEventListener('click', handleCellClick);
-        cell.addEventListener('click', handleCellClick, { once: true })
-    })
-    setBoardHoverClass();
-    winloseMsg.classList.remove('show');
+let options = ['','','', '','','', '','',''];
+let currentPlayer = 'X';
+let gameRun = false;
+
+function initGame() {
+    startScreen.style.display = 'none';
+    playScreen.style.display = 'block';
+    gameMode.style.display = 'none';
+
+    cells.forEach(cell =>
+        cell.addEventListener('click', handleCellClick));
+        statTxt.textContent = `${currentPlayer}'s turn`;
+        gameRun = true;
+        restartGame();
+
+    btnRestart.addEventListener('click', restartGame);
+    btnBack.addEventListener('click', backStart);
+    btnBackMode.addEventListener('click', backMode);
 }
 
-function handleCellClick(e) {
-    const cellClick = e.target;
-    const currentClass = isPlayerOTurn ? playerOClass : playerXClass;
-    placeMark(cellClick, currentClass);
-    if (checkWin(currentClass)) {
-        endGame(false);
-    } else if (isDraw()) {
-        endGame(true);
-    } else {
-        swapTurns();
-        setBoardHoverClass();
+function handleCellClick() {
+    const cellIndex = this.getAttribute('cellIndex');
+    if(options[cellIndex] != '' || !gameRun) {
+        return;
     }
+
+    updateCell(this, cellIndex);
+    checkWinner();
 }
 
-function endGame(draw) {
-    if (draw) {
-        winloseMsg.innerHTML = 'Draw!';
+function updateCell(cell, number) {
+    options[number] = currentPlayer;
+    cell.textContent = currentPlayer;
+    // console.log('just made an X');
+}
+
+function changePlayer() {
+    currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    statTxt.textContent = `${currentPlayer}'s turn`;
+    // console.log('changePlayer works!');
+}
+
+function checkWinner() {
+    let roundWon = false;
+
+    for(let i = 0; i < winningCombo.length; i++) {
+        const condition = winningCombo[i];
+        const cellA = options[condition[0]];
+        const cellB = options[condition[1]];
+        const cellC = options[condition[2]];
+
+        if(cellA == '' || cellB == '' || cellC == '') {
+            continue;
+        }
+        if (cellA == cellB && cellB == cellC) {
+            roundWon = true;
+            break;
+        };
+
+        console.log('checkWinner is working properly');
+    };
+
+    if(roundWon) {
+        statTxt.textContent = `${currentPlayer} wins!`;
+        gameRun = false;
+    } else if (!options.includes('')) {
+        statTxt.textContent = 'Draw!';
+        gameRun = false;
     } else {
-        // need to figure out how to make code below say you or opponent wins
-        winloseMsg.innerHTML = 'Player wins!';
-    }
-    winloseMsg.classList.add('show');
+        changePlayer();
+    };
+
+    // console.log('someone won');
 }
 
-[btnStart, btnRestart].forEach(btn => 
-    btn.addEventListener('click', startGame));
+function restartGame() {
+    currentPlayer = 'X';
+    options = ['','','', '','','', '','',''];
+    statTxt.textContent = `${currentPlayer}'s turn`;
+    cells.forEach(cell =>
+        cell.textContent = '');
+        gameRun = true;
+}
+
+function backStart() {
+    gameRun = false;
+
+    startScreen.style.display = 'block';
+    playScreen.style.display = 'none';
+}
+
+function backMode() {
+    gameRun = false;
+
+    playScreen.style.display = 'none';
+    gameMode.style.display = 'block';
+}
+
+btnStart.addEventListener('click', function() {
+    gameMode.style.display = 'block';
+    startScreen.style.display = 'none';
+
+    modeButtons.forEach(button =>
+         button.addEventListener('click', initGame));
+});
+
+
+
+
+

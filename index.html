@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/fwd-normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header id="header">
@@ -13,34 +13,39 @@
     </header>
 
     <main id="main">
-        <div class="start-game" id="start-game">
+        <div id="start-game">
             <h2>Tic Tac Toe</h2>
-            <button class="btn-start">Start</button>
+            <button id="btn-start">Start</button>
         </div>
 
-        <div class="game-play" id="game-play">
-            <div class="game-board" id="game-board">
-                <div class="cell" data-cell-number="1"></div>
-                <div class="cell" data-cell-number="2"></div>
-                <div class="cell" data-cell-number="3"></div>
-                <div class="cell" data-cell-number="4"></div>
-                <div class="cell" data-cell-number="5"></div>
-                <div class="cell" data-cell-number="6"></div>
-                <div class="cell" data-cell-number="7"></div>
-                <div class="cell" data-cell-number="8"></div>
-                <div class="cell" data-cell-number="9"></div>
+        <div id="game-mode">
+            <button class="btn-mode" id="btn-play-friend">Play with Friend</button>
+            <button class="btn-mode" id="btn-play-ai">Play with AI</button>
+        </div>
+
+        <div id="game-play">
+            <div class="flex-row">
+                <div id="game-board">
+                    <div class="cell" cellIndex="0"></div>
+                    <div class="cell" cellIndex="1"></div>
+                    <div class="cell" cellIndex="2"></div>
+                    <div class="cell" cellIndex="3"></div>
+                    <div class="cell" cellIndex="4"></div>
+                    <div class="cell" cellIndex="5"></div>
+                    <div class="cell" cellIndex="6"></div>
+                    <div class="cell" cellIndex="7"></div>
+                    <div class="cell" cellIndex="8"></div>
+                </div>
             </div>
     
             <section>
-                <h2 class="game-status">Your turn!</h2>
+                <h2 id="game-status">Your turn!</h2>
             </section>
     
-            <div class="game-finish" id="game-finish">
-                <div class="game-end" id="game-end">
-                    <p class="winlose-msg">You won!</p>
-                </div>
-    
-                <button class="btn-restart">Play Again</button>
+            <div id="game-finish">
+                <button id="btn-back">Back to Start</button>
+                <button id="btn-back-mode">Back to Game Mode</button>
+                <button id="btn-restart">Play Again</button>
             </div>
         </div>
 
