@@ -28,7 +28,6 @@ let gameRun = false;
 function initGame() {
     startScreen.style.display = 'none';
     playScreen.style.display = 'block';
-    // gameMode.style.display = 'none';
 
     cells.forEach(cell =>
         cell.addEventListener('click', handleCellClick));
@@ -38,7 +37,6 @@ function initGame() {
 
     btnRestart.addEventListener('click', restartGame);
     btnBack.addEventListener('click', backStart);
-    // btnBackMode.addEventListener('click', backMode);
 }
 
 function handleCellClick() {
@@ -54,13 +52,11 @@ function handleCellClick() {
 function updateCell(cell, number) {
     options[number] = currentPlayer;
     cell.textContent = currentPlayer;
-    // console.log('just made an X');
 }
 
 function changePlayer() {
     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     statTxt.textContent = `${currentPlayer}'s turn`;
-    // console.log('changePlayer works!');
 }
 
 function checkWinner() {
@@ -93,7 +89,6 @@ function checkWinner() {
         changePlayer();
     };
 
-    // console.log('someone won');
 }
 
 function restartGame() {
@@ -111,13 +106,6 @@ function backStart() {
     startScreen.style.display = 'block';
     playScreen.style.display = 'none';
 }
-
-// function backMode() {
-//     gameRun = false;
-
-//     playScreen.style.display = 'none';
-//     gameMode.style.display = 'block';
-// }
 
 btnStart.addEventListener('click', initGame);
 
