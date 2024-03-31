@@ -1,19 +1,99 @@
+body {
+    font-family: 'Tomorrow', 'Courier New', Courier, monospace;
+    color: #3d3d3d;
+}
+
+header {
+    display: flex;
+    background-color: #e3fffc;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0px 10px 14px 1px rgb(215 233 230);
+}
+
+h1 {
+    display: none;
+}
+
+a, a:visited {
+    color: #3d3d3d;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #216b6b;
+    color: #ffffff;
+}
+
+button {
+    cursor: pointer;
+    font-size: 60px;
+    padding: 1rem;
+    border: solid 5px #216b6b;
+    background-color: #309999;
+    color: #ffffff;
+    border-radius: 2rem;
+    transition: all ease-out 0.4s;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #216b6b;
+}
+
+button:active {
+    border: solid 5px #ff0000;
+}
+
+#logo {
+    max-width: 500px;
+}
+
+#start-game {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    margin: 8rem 0;
+}
+
 #game-mode {
     display: none;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 15rem 0;
+    padding: 0 15rem;
 }
 
 #game-play {
     display: none;
+    margin: 3rem 0;
 }
 
 .flex-row {
     display: flex;
+    justify-content: center;
+    margin: 3rem 0;
 }
 
 #game-board {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    margin: auto;
+}
+
+#status-section {
+    justify-content: center;
+    margin: 2rem 0;
+    align-items: center;
+    gap: 3rem;
+}
+
+#playing-as-x {
+    font-size: 24px;
+    padding: 1rem;
+    border: 5px dashed #F4A6B9;
+    border-radius: 2rem;
 }
 
 .cell {
@@ -23,8 +103,32 @@
     font-family: "Permanent Marker", cursive;
     width: 150px;
     height: 150px;
-    box-shadow: 0 0 0 1px #333333;
-    border: 1px solid #333333;
+    box-shadow: 0 0 0 1px #ffffff;
+    border: 3px solid #f4a6b9;
     cursor: pointer;
     font-size: 85px;
+}
+
+#game-finish {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0 2rem;
+}
+
+#game-status {
+    text-align: center;
+    font-size: 40px;
+}
+
+.btns-in-game {
+    font-size: 24px;
+}
+
+#footer {
+    background-color: #B8E0DC;
+    padding: 1rem;
+    text-align: center;
 }

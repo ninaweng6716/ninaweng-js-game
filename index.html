@@ -4,54 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/fwd-normalize.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header id="header">
         <h1>Tic Tac Toe Game</h1>
+        <img src="images/text-logo.png" alt="This is the text logo of the site.">
     </header>
 
     <main id="main">
         <div id="start-game">
-            <h2>Tic Tac Toe</h2>
+            <img src="images/logo-with-text.png" alt="This is an image of the game site's logo" id="logo">
             <button id="btn-start">Start</button>
         </div>
 
-        <!-- <div id="game-mode">
+        <div id="game-mode">
             <button class="btn-mode" id="btn-play-friend">Play with Friend</button>
             <button class="btn-mode" id="btn-play-ai">Play with AI</button>
-        </div> -->
+        </div>
 
         <div id="game-play">
             <div class="flex-row">
                 <div id="game-board">
-                    <div class="cell" cellIndex="0"></div>
-                    <div class="cell" cellIndex="1"></div>
-                    <div class="cell" cellIndex="2"></div>
-                    <div class="cell" cellIndex="3"></div>
-                    <div class="cell" cellIndex="4"></div>
-                    <div class="cell" cellIndex="5"></div>
-                    <div class="cell" cellIndex="6"></div>
-                    <div class="cell" cellIndex="7"></div>
-                    <div class="cell" cellIndex="8"></div>
+                    <div class="cell" data-cellindex="0"></div>
+                    <div class="cell" data-cellindex="1"></div>
+                    <div class="cell" data-cellindex="2"></div>
+                    <div class="cell" data-cellindex="3"></div>
+                    <div class="cell" data-cellindex="4"></div>
+                    <div class="cell" data-cellindex="5"></div>
+                    <div class="cell" data-cellindex="6"></div>
+                    <div class="cell" data-cellindex="7"></div>
+                    <div class="cell" data-cellindex="8"></div>
                 </div>
             </div>
     
-            <section>
+            <section id="status-section">
                 <h2 id="game-status">Your turn!</h2>
+                <p id="playing-as-x">You are playing as X!</p>
             </section>
     
             <div id="game-finish">
-                <button id="btn-back">Back to Start</button>
-                <button id="btn-restart">Play Again</button>
+                <button class="btns-in-game" id="btn-back">Back to Start</button>
+                <button class="btns-in-game" id="btn-restart">Play Again</button>
             </div>
+
         </div>
 
     </main>
 
     <footer id="footer">
-        ©ninaweng.com 2024
+        <p><a href="https://ninaweng.com/">©ninaweng.com</a> 2024</p>
     </footer>
     <script src="scripts/script.js"></script>
 </body>
